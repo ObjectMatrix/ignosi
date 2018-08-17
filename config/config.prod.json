@@ -1,0 +1,9 @@
+{
+  "database": {
+      "host": "localhost",
+      "user": "root",
+      "password": "root",
+      "connectionLimit": 10,
+      "database": "texas"
+  }
+}

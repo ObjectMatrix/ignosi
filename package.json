@@ -1,0 +1,12 @@
+{
+  "name": "ignosi",
+  "version": "0.0.1",
+  "description": "ignosi",
+  "main": "index.js",
+  "repository": "https://github.com/ObjectMatrix/ignosi.git",
+  "author": "asad.gooogle@gmail.com",
+  "license": "MIT",
+  "dependencies": {
+    "mysql": "^2.16.0"
+  }
+}
