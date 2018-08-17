@@ -5,5 +5,8 @@
       "password": "root",
       "connectionLimit": 10,
       "database": "texas"
+  },
+  "server": {
+    "port": 8080
   }
 }
