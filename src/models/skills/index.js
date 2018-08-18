@@ -5,7 +5,7 @@ const createRepository = require('./repository');
 module.exports = (dependencies) => {
   const repository = createRepository(dependencies);
   return {
-    // findOne: (id, query) => repository.findOne(id, query),
+    findOne: (skillId) => repository.findOne(skillId),
     findMany: () =>  repository.findMany()
   };
 };

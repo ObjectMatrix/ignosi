@@ -10,10 +10,20 @@ module.exports = (dependencies) => {
     findMany: async (req, h) => {
       try {
           const modelData = await skillsModel.findMany();
+          return modelData;
       } catch (e) {
           console.log(e);
       }
 
+    },
+
+    findOne: async (req, h) => {
+      try {
+        const modelData = skillsModel.findOne(req.params.id);
+        return modelData;
+      } catch (e) {
+        console.log(e);
+      }
     },
   };
 };

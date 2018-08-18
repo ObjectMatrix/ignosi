@@ -1,7 +1,7 @@
 'use strict';
 
 const createHandlers = require('./handler');
-
+const schemas = require('../../models/skills/schemas');
 
 module.exports = () => {
   const skillHandlers = createHandlers();
@@ -19,6 +19,22 @@ module.exports = () => {
           tags: ['api', 'skill', 'ignosis'],
         },
       });
+
+
+      server.route({
+        method: 'GET',
+        path: '/{id}/skill',
+        config: {
+          cors: true,
+          handler: skillHandlers.findOne,
+          bind: skillHandlers,
+          description: 'Retrieve specific skill name.',
+          tags: ['api', 'skill', 'ignosis'],
+          validate: schemas.skillsRequest,
+        },
+      });
+
+
     },
   };
 };

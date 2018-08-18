@@ -17,5 +17,5 @@ const test = new Promise((resolve, reject) => {
 });
 
 test.then((x) => {
-  console.log(x);
+  //console.log(x);
 })
