@@ -13,6 +13,7 @@ const startApp = async () => {
     const server = await Glue.compose(manifest, manifest.options);
     await server.start();
   } catch (err) {
+    console.log(err)
     process.exit(1);
   }
 };

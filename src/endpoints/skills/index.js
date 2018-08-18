@@ -35,7 +35,7 @@ module.exports = () => {
 
       server.route({
         method: 'GET',
-        path: '/{term}/search',
+        path: '/{term}/{level}/search',
         config: {
           cors: true,
           handler: skillHandlers.search,

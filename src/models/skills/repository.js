@@ -41,15 +41,15 @@ module.exports = () => ({
   },
 
 
-search: (term) => {
+search: (term, level) => {
     const querySearch =`SELECT qeSubject, qeGrade, qeObjective, qeSkill,
     qeSubSkill, qeSubSubSkill, qeLessonName, qeSerialNumber,
     qeMastery, qeRetries, qeRandomQuestion, qeInstruction,
     qeDomainName, qeReadyToGo FROM astabquestionentry where
-    qeSubject like '%${term}%'
+    (qeSubject like '%${term}%'
     OR qeObjective like '%${term}%'
     OR qeSkill like '%${term}%'
-    OR qeLessonName like '%${term}%'`;
+    OR qeLessonName like '%${term}%') AND qeGrade=${level}`;
 console.log(querySearch)
     return new Promise((resolve, reject) => {
       pool.query(querySearch, (err, result, fields) => {

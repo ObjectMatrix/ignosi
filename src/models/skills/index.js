@@ -7,6 +7,6 @@ module.exports = (dependencies) => {
   return {
     findOne: (skillId) => repository.findOne(skillId),
     findMany: () =>  repository.findMany(),
-    search: (term) => repository.search(term)
+    search: (term, level) => repository.search(term, level)
   };
 };
