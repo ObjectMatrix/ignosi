@@ -20,7 +20,6 @@ module.exports = () => {
         },
       });
 
-
       server.route({
         method: 'GET',
         path: '/{id}/skill',
@@ -34,6 +33,18 @@ module.exports = () => {
         },
       });
 
+      server.route({
+        method: 'GET',
+        path: '/{term}/search',
+        config: {
+          cors: true,
+          handler: skillHandlers.search,
+          bind: skillHandlers,
+          description: 'search skill name.',
+          tags: ['api', 'skill', 'ignosis'],
+          validate: schemas.skillsearch,
+        },
+      });
 
     },
   };

@@ -4,9 +4,7 @@ const skills = require('./endpoints/skills');
 
 module.exports = (serverConfig, dependencies) => {
   const skillsRoutes = skills(dependencies);
-  // const coveragesRoutes = coverages(dependencies);
-  // const vehiclesRoutes = vehicles(dependencies);
-  // const driversRoutes = drivers(dependencies);
+
   return {
     server: {
       state: {
@@ -25,16 +23,7 @@ module.exports = (serverConfig, dependencies) => {
         // Routes.
         { plugin: rootContextPlugin },
         { plugin: skillsRoutes },
-        // { plugin: documentRoutes },
-        // { plugin: addressRoutes },
-        // { plugin: driversRoutes },
-        // { plugin: vehiclesRoutes },
-        // { plugin: coveragesRoutes },
-        // { plugin: policyRoutes },
-        // { plugin: summaryRoutes },
-        // { plugin: customerRoutes },
-        // { plugin: quoteRoutes },
-        // { plugin: premiumRoutes },
+
       ],
       options: {
         once: true,

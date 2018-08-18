@@ -11,4 +11,15 @@ module.exports = {
         .default('951'),
     },
   },
+
+  skillsearch: {
+    params: {
+      term: Joi.string()
+        .required()
+        .default('Mathematics'),
+    },
+  },
+
 };
+
+

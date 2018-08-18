@@ -39,4 +39,24 @@ module.exports = () => ({
       })
     });
   },
+
+
+search: (term) => {
+    const querySearch =`SELECT qeSubject, qeGrade, qeObjective, qeSkill,
+    qeSubSkill, qeSubSubSkill, qeLessonName, qeSerialNumber,
+    qeMastery, qeRetries, qeRandomQuestion, qeInstruction,
+    qeDomainName, qeReadyToGo FROM astabquestionentry where
+    qeSubject like '%${term}%'
+    OR qeObjective like '%${term}%'
+    OR qeSkill like '%${term}%'
+    OR qeLessonName like '%${term}%'`;
+console.log(querySearch)
+    return new Promise((resolve, reject) => {
+      pool.query(querySearch, (err, result, fields) => {
+        if(err)
+          reject(err)
+        resolve(result)
+      })
+    });
+  },
 });

@@ -25,5 +25,15 @@ module.exports = (dependencies) => {
         console.log(e);
       }
     },
+
+    search: async (req, h) => {
+      try {
+        const modelData = skillsModel.search(req.params.term);
+        return modelData;
+      } catch (e) {
+        console.log(e);
+      }
+    },
+
   };
 };
