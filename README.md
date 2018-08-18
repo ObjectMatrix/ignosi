@@ -1,6 +1,6 @@
 # ignosi
 
-![Drag Racing](ignosi.jpg)  
+![Drag Racing](ignosi.png)  
 
 
 η γνώση
