@@ -18,8 +18,6 @@ module.exports = (serverConfig, dependencies) => {
         { plugin: Inert },
         { plugin: Vision },
 
-        // { plugin: security },
-
         // Routes.
         { plugin: rootContextPlugin },
         { plugin: skillsRoutes },
