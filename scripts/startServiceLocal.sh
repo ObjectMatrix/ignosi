@@ -15,10 +15,10 @@ echo "docker build . -t ${APP_IMAGE} ..."
 # pass any parameters through to deployService.sh to allow for extra spring profiles
 
 if [ "$1" = "local" ]; then
-  echo *********BUILDING LOCAL*************;
+
 	docker build . -t ${APP_IMAGE} -f Dockerfile.dev
 else
-  echo ***********BUILDING PROD*************;
+
 	docker build . -t ${APP_IMAGE} -f Dockerfile
 fi
 
