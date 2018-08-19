@@ -2,16 +2,16 @@
 const  pool = require('../config/db');
 module.exports = () => ({
   /**
-   * @param {string} id - id number
+   * @param {string} answerId - answer number
    * @param {object} query - querystring
-   * @returns {object} an object that a passage
+   * @returns {object} an object that a answer
    */
 
   findOne: (id) => {
 
-    const queryOne =`SELECT pbCurPassage, pbPassageID, pbLessonName, pbPassage,
-    pbPassageNoTag, pbRandomField, pbRandomizeOrNot,
-    pbSequencer, pbPassageType, pbBgPallet, pbSkillCode FROM astabpassagebank where pbPassageId='${id}'`;
+    const queryOne =`SELECT abAnswerId, abQuestionId, abAnswer,
+    abAnswerNoTag, abCorrectAnswer, abRandomField, abLessonName, abPlainCorrectAnswer
+    FROM astabanswerbank where abQuestionId='${id}'`;
 
     return new Promise((resolve, reject) => {
       pool.query(queryOne, (err, result, fields) => {
