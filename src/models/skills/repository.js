@@ -50,7 +50,7 @@ search: (term, level) => {
     OR qeObjective like '%${term}%'
     OR qeSkill like '%${term}%'
     OR qeLessonName like '%${term}%') AND qeGrade=${level}`;
-console.log(querySearch)
+
     return new Promise((resolve, reject) => {
       pool.query(querySearch, (err, result, fields) => {
         if(err)
