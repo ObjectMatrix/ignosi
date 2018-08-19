@@ -1,0 +1,64 @@
+version: '3'
+
+networks:
+  backend:
+    external:
+      name: ${NETWORK_NAME}
+    driver: overlay
+    driver_opts:
+      encrypted: ''
+
+services:
+ service-ignosis-view:
+    image: ${APP_IMAGE}
+    networks:
+      - backend
+    environment:
+      - PORT=8080
+      - LM_APP_ID=${SERVICE_NAME}
+      - LM_AUTH_TYPE=NONE
+      - APP_ENV=${APP_ENV}
+      - DOMAIN_NAME=${DOMAIN_NAME}
+      - SCC_URL=http://dna-cloud-config-service:8888
+      - VAULT_SERVER_URL=https://vault.aws.lmig.com:8200/v1/secret
+      - TLE=np
+      - BU=us-consumer-markets
+      - ORG=ignosis-service
+      - APP=service-ignosis-view
+      - ETS_ENV=development
+      - IGNOSIS_ENV_AND_RTI=development
+    deploy:
+      replicas: 1
+      restart_ignosis:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 30
+        window: 0s
+      resources:
+        limits:
+          cpus: '1.0'
+          memory: 1024M
+      placement:
+        constraints:
+          - ${DOCKER_NODE_ROLE_CONSTRAINT}
+          - node.labels.com.middleware != nginx
+      labels:
+        com.docker.ucp.access.label: ignosis
+    labels:
+      - com.docker.ucp.access.label=ignosis
+      - domain.ignosis=${DOMAIN_NAME}
+      - network.name=${NETWORK_NAME}
+      - platform.ignosis=nodejs
+      - platform.env=${APP_ENV}
+      - application.name=${APP_NAME}
+      - application.version=${SERVICE_VERSION}
+      - project.name=${SERVICE_DEPLOY_NAME}
+      - service.name=${SERVICE_NAME}
+      - AUTO_ENV_TO_DEPLOY_TO=${APP_ENV}
+      - LM_ENV_TO_DEPLOY_TO=${APP_ENV}
+      - AUTO_APP_ID=${STACK_NAME}
+      - LM_APP_ID=${STACK_NAME}
+    logging:
+      driver: ${LOG_FORMAT}
+      options:
+        labels: domain.ignosis,platform.ignosis,platform.env,application.version,application.name,project.name,service.name,network.name
