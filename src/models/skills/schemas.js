@@ -23,6 +23,17 @@ module.exports = {
     },
   },
 
+  levelsubjectsearch: {
+    params: {
+      level: Joi.string()
+        .required()
+        .default('8'),
+      subject: Joi.string()
+        .required()
+        .default('Mathematics'),
+    },
+  },
+
 };
 
 

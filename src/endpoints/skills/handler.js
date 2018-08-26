@@ -35,5 +35,14 @@ module.exports = (dependencies) => {
       }
     },
 
+    levelsubject: async (req, h) => {
+      try {
+        const modelData = skillsModel.levelsubject(req.params.level, req.params.subject);
+        return modelData;
+      } catch (e) {
+        console.log(e);
+      }
+    },
+
   };
 };

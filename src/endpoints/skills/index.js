@@ -46,6 +46,20 @@ module.exports = () => {
         },
       });
 
+      server.route({
+        method: 'GET',
+        path: '/{level}/{subject}/levelsubject',
+        config: {
+          cors: true,
+          handler: skillHandlers.levelsubject,
+          bind: skillHandlers,
+          description: 'search by level and subject.',
+          tags: ['api', 'skill', 'ignosis'],
+          validate: schemas.levelsubjectsearch,
+        },
+      });
+
+
     },
   };
 };

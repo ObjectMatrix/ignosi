@@ -6,7 +6,7 @@ module.exports = () => ({
     const queryMany =`SELECT qeSubject, qeGrade, qeObjective, qeSkill,
     qeSubSkill, qeSubSubSkill, qeLessonName, qeSerialNumber,
     qeMastery, qeRetries, qeRandomQuestion, qeInstruction,
-    qeDomainName, qeReadyToGo FROM astabquestionentry`;
+    qeDomainName, qeReadyToGo FROM astabquestionentry order by qeGrade + 0, qeSubject`;
 
     return new Promise((resolve, reject) => {
       pool.query(queryMany, (err, result, fields) => {
@@ -59,4 +59,22 @@ search: (term, level) => {
       })
     });
   },
+  levelsubject: (level, subject) => {
+    const querylevelsubjectSearch =`SELECT qeSubject, qeGrade, qeObjective, qeSkill,
+    qeSubSkill, qeSubSubSkill, qeLessonName, qeSerialNumber,
+    qeMastery, qeRetries, qeRandomQuestion, qeInstruction,
+    qeDomainName, qeReadyToGo FROM astabquestionentry where
+    qeGrade = '${level}'
+    AND qeSubject = '${subject}'`;
+
+    return new Promise((resolve, reject) => {
+      pool.query(querylevelsubjectSearch, (err, result, fields) => {
+        if(err)
+          reject(err)
+        resolve(result)
+      })
+    });
+  },
+
+
 });
