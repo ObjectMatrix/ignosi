@@ -6,13 +6,15 @@ const levelsubject = require('./endpoints/skills');
 const questions = require('./endpoints/question');
 const passage = require('./endpoints/passage');
 const answer = require('./endpoints/answer');
+const quiz = require('./endpoints/quiz');
 
 module.exports = (serverConfig, dependencies) => {
-  const skillsRoutes    = skills(dependencies);
-  const levelsubjectRoutes = levelsubject(dependencies);
-  const questionsRoute  = questions(dependencies);
-  const passageRoute    = passage(dependencies);
-  const answerRoute     = answer(dependencies);
+  const skillsRoutes        = skills(dependencies);
+  const levelsubjectRoutes  = levelsubject(dependencies);
+  const questionsRoute      = questions(dependencies);
+  const passageRoute        = passage(dependencies);
+  const answerRoute         = answer(dependencies);
+  const quizRoute           = quiz(dependencies);
   return {
     server: {
       state: {
@@ -27,6 +29,7 @@ module.exports = (serverConfig, dependencies) => {
         { plugin: Vision },
 
         // Routes.
+        { plugin: quizRoute },
         { plugin: rootContextPlugin },
         { plugin: skillsRoutes },
         { plugin: levelsubjectRoutes },
