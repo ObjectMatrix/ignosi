@@ -1,0 +1,5 @@
+## Essentially, there are two ways to build the image:
+
+Make changes to the base image and commit
+Use Dockerfile - A text file that contains all the commands to build an image
+

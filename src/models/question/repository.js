@@ -25,7 +25,7 @@ module.exports = () => ({
    */
 
   findOne: (id) => {
-
+    // example: questionId: 51F49A64-2787-41DA-BF60-78E0CBE973F9
     const queryOne =`SELECT qbQuestionId, qbQuestion, qbQuestionNoTag
     qbHints, qbRandomField, qbPassageId, qbLessonName,
     serialNumber, qbSolution, qbSolutionNoTag, qbHintsNoTag,

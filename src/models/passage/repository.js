@@ -17,7 +17,7 @@ module.exports = () => ({
       pool.query(queryOne, (err, result, fields) => {
         if(err)
           reject(err)
-        resolve(result)
+          resolve(result)
       })
     });
   },

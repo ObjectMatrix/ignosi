@@ -6,7 +6,7 @@ module.exports = () => ({
     const queryMany =`SELECT qeSubject, qeGrade, qeObjective, qeSkill,
     qeSubSkill, qeSubSubSkill, qeLessonName, qeSerialNumber,
     qeMastery, qeRetries, qeRandomQuestion, qeInstruction,
-    qeDomainName, qeReadyToGo FROM astabquestionentry order by qeGrade + 0, qeSubject`;
+    qeDomainName, qeReadyToGo, Created, Modified FROM astabquestionentry order by qeGrade + 0, qeSubject`;
 
     return new Promise((resolve, reject) => {
       pool.query(queryMany, (err, result, fields) => {
@@ -29,7 +29,7 @@ module.exports = () => ({
     const queryOne =`SELECT qeSubject, qeGrade, qeObjective, qeSkill,
     qeSubSkill, qeSubSubSkill, qeLessonName, qeSerialNumber,
     qeMastery, qeRetries, qeRandomQuestion, qeInstruction,
-    qeDomainName, qeReadyToGo FROM astabquestionentry where qeSerialNumber=${id}`;
+    qeDomainName, qeReadyToGo, Created, Modified FROM astabquestionentry where qeSerialNumber=${id}`;
 
     return new Promise((resolve, reject) => {
       pool.query(queryOne, (err, result, fields) => {
@@ -45,7 +45,7 @@ search: (term, level) => {
     const querySearch =`SELECT qeSubject, qeGrade, qeObjective, qeSkill,
     qeSubSkill, qeSubSubSkill, qeLessonName, qeSerialNumber,
     qeMastery, qeRetries, qeRandomQuestion, qeInstruction,
-    qeDomainName, qeReadyToGo FROM astabquestionentry where
+    qeDomainName, qeReadyToGo, Created, Modified FROM astabquestionentry where
     (qeSubject like '%${term}%'
     OR qeObjective like '%${term}%'
     OR qeSkill like '%${term}%'
@@ -63,7 +63,7 @@ search: (term, level) => {
     const querylevelsubjectSearch =`SELECT qeSubject, qeGrade, qeObjective, qeSkill,
     qeSubSkill, qeSubSubSkill, qeLessonName, qeSerialNumber,
     qeMastery, qeRetries, qeRandomQuestion, qeInstruction,
-    qeDomainName, qeReadyToGo FROM astabquestionentry where
+    qeDomainName, qeReadyToGo, Created, Modified FROM astabquestionentry where
     qeGrade = '${level}'
     AND qeSubject = '${subject}'`;
 
