@@ -11,7 +11,7 @@ module.exports = () => ({
 
     const queryOne =`SELECT abAnswerId, abQuestionId, abAnswer,
     abAnswerNoTag, abCorrectAnswer, abRandomField, abLessonName, abPlainCorrectAnswer
-    FROM astabanswerbank where abQuestionId='${id}'`;
+    FROM astabanswerbank where abLessonName ='${id}'`;
 
     return new Promise((resolve, reject) => {
       pool.query(queryOne, (err, result, fields) => {

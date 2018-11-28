@@ -10,7 +10,8 @@
     "swagger": "nodemon ./src/swagger/index.js",
     "start-local": "sh ./scripts/startServiceLocal.sh local",
     "stop-local": "./scripts/stopServiceLocal.sh",
-    "restart-local": "npm stop-local; npm start-local"
+    "restart-local": "npm stop-local; npm start-local",
+    "start": "node ./app.js"
   },
   "dependencies": {
     "bluebird": "^3.5.1",
@@ -24,6 +25,7 @@
     "mysql": "^2.16.0",
     "newrelic": "^3.3.1",
     "path": "^0.12.7",
+    "react-scripts": "^1.1.5",
     "recursive-readdir-sync": "^1.0.6",
     "semver": "^5.5.1",
     "vision": "^5.3.3"
