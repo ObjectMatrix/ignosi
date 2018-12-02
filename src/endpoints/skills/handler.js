@@ -28,7 +28,7 @@ module.exports = (dependencies) => {
 
     search: async (req, h) => {
       try {
-        const modelData = skillsModel.search(req.params.term, req.params.level);
+        const modelData = skillsModel.search(req.params.term);
         return modelData;
       } catch (e) {
         console.log(e);

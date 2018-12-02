@@ -7,6 +7,7 @@ const questions = require('./endpoints/question');
 const passage = require('./endpoints/passage');
 const answer = require('./endpoints/answer');
 const quiz = require('./endpoints/quiz');
+const search = require('./endpoints/skills');
 
 module.exports = (serverConfig, dependencies) => {
   const skillsRoutes        = skills(dependencies);
@@ -15,6 +16,7 @@ module.exports = (serverConfig, dependencies) => {
   const passageRoute        = passage(dependencies);
   const answerRoute         = answer(dependencies);
   const quizRoute           = quiz(dependencies);
+  const searchRoute         = search(dependencies)
   return {
     server: {
       state: {
@@ -35,7 +37,8 @@ module.exports = (serverConfig, dependencies) => {
         { plugin: levelsubjectRoutes },
         { plugin: questionsRoute },
         { plugin: passageRoute },
-        { plugin: answerRoute }
+        { plugin: answerRoute },
+        { plugin: searchRoute }
 
       ],
       options: {

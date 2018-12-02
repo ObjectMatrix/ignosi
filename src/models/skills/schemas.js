@@ -17,9 +17,6 @@ module.exports = {
       term: Joi.string()
         .required()
         .default('Mathematics'),
-      level: Joi.string()
-        .required()
-        .default('8'),
     },
   },
 
