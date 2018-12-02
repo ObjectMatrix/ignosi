@@ -3,9 +3,9 @@ const  pool = require('../config/db');
 module.exports = () => ({
   findMany: (lessonName) => {
 
-    const queryMany =`SELECT qbQuestionId, qbQuestion, qbQuestionNoTag
+    const queryMany =`SELECT qbQuestionId, qbQuestion,
     qbHints, qbRandomField, qbPassageId, qbLessonName,
-    serialNumber, qbSolution, qbSolutionNoTag, qbHintsNoTag,
+    SerialNumber, qbSolution,
     qbLOD, qbUser, Modified, Created FROM astabquestionbank where qbLessonName='${lessonName}'`;
 
     return new Promise((resolve, reject) => {
@@ -26,9 +26,9 @@ module.exports = () => ({
 
   findOne: (id) => {
     // example: questionId: 51F49A64-2787-41DA-BF60-78E0CBE973F9
-    const queryOne =`SELECT qbQuestionId, qbQuestion, qbQuestionNoTag
+    const queryOne =`SELECT qbQuestionId, qbQuestion,
     qbHints, qbRandomField, qbPassageId, qbLessonName,
-    serialNumber, qbSolution, qbSolutionNoTag, qbHintsNoTag,
+    SerialNumber, qbSolution,
     qbLOD, qbUser, Modified, created FROM astabquestionbank where qbQuestionId='${id}'`;
 
     return new Promise((resolve, reject) => {

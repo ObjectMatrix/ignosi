@@ -10,7 +10,7 @@ module.exports = () => ({
   findOne: (id) => {
 
     const queryOne =`SELECT pbCurPassage, pbPassageID, pbLessonName, pbPassage,
-    pbPassageNoTag, pbRandomField, pbRandomizeOrNot,
+    pbRandomField, pbRandomizeOrNot,
     pbSequencer, pbPassageType, pbBgPallet, pbSkillCode FROM astabpassagebank where pbLessonName='${id}' ORDER BY pbSequencer + 0`;
 
     return new Promise((resolve, reject) => {
