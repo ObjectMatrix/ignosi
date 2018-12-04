@@ -11,7 +11,7 @@
     "start-local": "sh ./scripts/startServiceLocal.sh local",
     "stop-local": "./scripts/stopServiceLocal.sh",
     "restart-local": "npm stop-local; npm start-local",
-    "start": "node ./app.js"
+    "start": "nodemon app.js"
   },
   "dependencies": {
     "bluebird": "^3.5.1",
